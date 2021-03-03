@@ -69,12 +69,13 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 	}
 
 	public JButton createButton() {
-		btn_1 = new JButton("MagentaYellow Button");
-		btn_1.addActionListener(this);
-		btn_1.setBackground(new Color(255, 255, 0));
-		btn_1.setFont(new Font("Arial", Font.ITALIC, 20));
-		btn_1.setForeground(Color.MAGENTA);
-		return btn_1;
+		JButton btn;
+		btn = new JButton("MagentaYellow Button");
+		btn.addActionListener(this);
+		btn.setBackground(new Color(255, 255, 0));
+		btn.setFont(new Font("Arial", Font.ITALIC, 20));
+		btn.setForeground(Color.MAGENTA);
+		return btn;   
 	}
 
 	public void actionPerformed(ActionEvent e) {
