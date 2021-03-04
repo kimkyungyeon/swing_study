@@ -1,11 +1,18 @@
 package swing_study;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
 import swing_study.component.FrameComponentEx;
 import swing_study.component.Fruit;
@@ -13,20 +20,12 @@ import swing_study.component.JButtonEx;
 import swing_study.component.JCheckBoxCustomEx;
 import swing_study.component.JCheckBoxEx;
 import swing_study.component.JLabelEx;
+import swing_study.component.JRadionButtonEx;
+import swing_study.component.JTextFieldAreaEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
 import swing_study.layout.LayoutGubun;
-
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
-import java.awt.Color;
 
 
 public class SwingMain extends JFrame implements ActionListener {
@@ -46,6 +45,8 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JPanel pCheckRadio;
 	private JButton btn06;
 	private JButton btn07;
+	private JPanel pText;
+	private JButton btn08;
 
 	/**
 	 * Launch the application.
@@ -133,14 +134,26 @@ public class SwingMain extends JFrame implements ActionListener {
 		
 		btn06 = new JButton("JCheckBox");
 		btn06.addActionListener(this);
+		pCheckRadio.setLayout(new GridLayout(0, 1, 0, 0));
 		pCheckRadio.add(btn06);
 		
 		btn07 = new JButton("JRadioButton");
 		btn07.addActionListener(this);
 		pCheckRadio.add(btn07);
+		
+		pText = new JPanel();
+		pText.setBorder(new TitledBorder(null, "텍스트필드", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pText);
+		
+		btn08 = new JButton("JTextField 관련예제");
+		btn08.addActionListener(this);
+		pText.add(btn08);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn08) {
+			actionPerformedBtn08(e);
+		}
 		if (e.getSource() == btn07) {
 			actionPerformedBtn07(e);
 		}
@@ -230,6 +243,11 @@ public class SwingMain extends JFrame implements ActionListener {
 		frame1.setVisible(true);
 	}
 	protected void actionPerformedBtn07(ActionEvent e) {
-		
+		JRadionButtonEx frame = new JRadionButtonEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn08(ActionEvent e) {
+		JTextFieldAreaEx frame = new JTextFieldAreaEx();
+		frame.setVisible(true);
 	}
 }
