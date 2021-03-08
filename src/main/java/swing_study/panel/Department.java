@@ -49,10 +49,41 @@ public class Department {
 		this.floor = floor;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + deptNo;
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Department other = (Department) obj;
+		if (deptNo != other.deptNo)
+			return false;
+		return true;
+	}
+
+
+
 	@Override
 	public String toString() {
+		return String.format("부서번호 %d  부서명 %s  부서위치 %d",deptNo,deptName,floor);
+	}
+
+//	deptName=%s, floor=%s
+	public String toString1() {
 		return String.format("%s(%d) ", deptName, deptNo);
 	}
-//	deptName=%s, floor=%s
 
 }

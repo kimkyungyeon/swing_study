@@ -20,23 +20,10 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 	private JButton btn2;
 	private JButton btn3;
 	private JButton btn1;
-	private JButton btn_1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameComponentEx frame = new FrameComponentEx();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -59,7 +46,6 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 
 		btn2 = new JButton("Disabled Button");
 		btn2.addActionListener(this);
-
 		btn2.setEnabled(false);
 		contentPane.add(btn2);
 
@@ -75,11 +61,11 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		btn.setBackground(new Color(255, 255, 0));
 		btn.setFont(new Font("Arial", Font.ITALIC, 20));
 		btn.setForeground(Color.MAGENTA);
-		return btn;   
+		return btn;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn_1) {
+		if (e.getSource() == btn1) {
 			actionPerformedBtn(e);
 		}
 		if (e.getSource() == btn2) {
@@ -129,4 +115,5 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 			btn1.setVisible(true);
 		}
 	}
+
 }
